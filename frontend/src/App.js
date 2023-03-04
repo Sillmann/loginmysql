@@ -2,10 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './loginmysql/pages/Login';
 import Menu from './loginmysql/pages/Menu';
 import Setting from './loginmysql/pages/Setting';
+import './global.css'
 
 function App() {
   return (
-    <div className="App">
+    <div>
 
       <BrowserRouter>
         <Routes>

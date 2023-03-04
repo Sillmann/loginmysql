@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { DoLogin } from '../Authservice';
 import { useNavigate } from 'react-router-dom'
 import Axios from 'axios';
+import './styles.css';
 
 export default function Login() {
 
@@ -20,15 +21,26 @@ export default function Login() {
       password
     } 
   
-    console.log(data);
+
 
     try {
-      await Axios.post("http://localhost:3333/loginmysql/isvalid",{
+      const response = await Axios.post("http://localhost:3333/loginmysql/isvalid",{
         email: email,
         password: password,
-      }).then((dt)=>{
+      });
+      
+      localStorage.setItem('loginId',response.data[0].id);
+      localStorage.setItem('emailId',response.data[0].email);
+      
+      //.then((response)=>{
 
         navigate("/setting");
+        //console.log(response.data[0].id);
+
+        // if (response.data[0].id > 0)
+        //   navigate("/setting")
+        // else  
+        //   navigate("/menu");
         
         //setId(databack.databack[0].id);
 
@@ -46,10 +58,11 @@ export default function Login() {
         // navigate("/login");
         // }
 
-      });
+     // });
     } catch (err) {
-       console.log('nao leu');
-       console.log(err);
+       //console.log('nao leu');
+       //console.log(err);
+       navigate("/menu");       
     }  
 
     // if ( email !== '' ) {
@@ -66,29 +79,49 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <p></p>
 
-      <form onSubmit={handleLogin}>
-          
-          <input 
-            type="email" 
-            placeholder="email" 
-            onChange={e => setEmail(e.target.value)}
-          />
+<div className="container">
 
-          <input 
-            type="password"
-            placeholder="password"
-            onChange={e => setPassword(e.target.value)}
-          />
+<aside className="aside">
+  <p>ssillmann</p>
+  <span>Log in to the platform</span>
+</aside>
 
-        <button type="submit">Login</button>
+<main className="main">
+  
+  <form onSubmit={handleLogin}>
+      
+      <div className="mainForm">
 
-      </form>
+      <input 
+        className="inputForm"
+        type="email" 
+        placeholder="email" 
+        onChange={e => setEmail(e.target.value)}
+      />
+
+      <input 
+        className="inputForm"
+        type="password"
+        placeholder="password"
+        onChange={e => setPassword(e.target.value)}
+      />
+
+      <button 
+        className="buttonForm"
+        type="submit"
+      >Login</button>
+
+      </div>
+
+  </form>
+
+</main>
 
 
-    </div>
+
+</div>      
+
+    
   )
 };
