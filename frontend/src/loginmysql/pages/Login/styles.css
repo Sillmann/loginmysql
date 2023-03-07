@@ -1,6 +1,6 @@
 .container {
-  max-width: 70rem;
-  margin: 10rem auto;
+  max-width: 60rem;
+  margin: 3rem auto;
   padding: 0 1rem; 
 
   display: grid;
@@ -27,30 +27,74 @@
 }
 
 .main {
+  background-color: var(--gray-800); 
+  height:120%;
 }
 
 .mainForm {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* align-items: center;
-  justify-content: center; */
-
-
+  align-items: center;
+  justify-content: center; 
 }
 
-.inputForm {
+.inputEmail {
   font-size: 1.5rem;
   color: var(--white);
-  background-color: var(--gray-800);
+  background-color: var(--gray-900);
   border-radius: 0.5rem;
   border: none;
   padding-left: 0.5rem;
   height: 3rem;
+  width: 80%;
+  margin-top: 5rem;
 }
 
+.inputPassword {
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--gray-900);
+  border-radius: 0.5rem;
+  border: none;
+  padding-left: 0.5rem;
+  height: 3rem;
+  width: 80%;
+  margin-top: 0.5rem;
+}
+
+.forgotPassword {
+  width:100%;
+  margin-left: 6rem;
+  color: var(--green-500);
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.register {
+  width:100%;
+  margin-left: 16rem;  
+  color: var(--green-500);
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: var(--white);
+} 
+
+.registerAcount {
+  color: var(--green-500);
+  font-size: 0.8rem;
+  text-decoration: none;  
+}
+
+
+.register p {
+
+  /* margin-left: 0rem; */
+}
+
+
 .buttonForm {
-  width: 10rem;
+  width: 80%;
   margin: 1rem auto; 
   height: 3rem;
   border-radius: 0.5rem;

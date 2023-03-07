@@ -3,6 +3,7 @@ import { DoLogin } from '../Authservice';
 import { useNavigate } from 'react-router-dom'
 import Axios from 'axios';
 import './styles.css';
+import {FiSmile} from 'react-icons/fi';
 
 export default function Login() {
 
@@ -83,7 +84,8 @@ export default function Login() {
 <div className="container">
 
 <aside className="aside">
-  <p>ssillmann</p>
+  
+  <p><FiSmile size="1rem" color="yellow"/>ssillmann</p>
   <span>Log in to the platform</span>
 </aside>
 
@@ -91,28 +93,41 @@ export default function Login() {
   
   <form onSubmit={handleLogin}>
       
-      <div className="mainForm">
+    <div className="mainForm">
 
       <input 
-        className="inputForm"
+        className="inputEmail"
         type="email" 
         placeholder="email" 
         onChange={e => setEmail(e.target.value)}
       />
 
       <input 
-        className="inputForm"
+        className="inputPassword"
         type="password"
         placeholder="password"
         onChange={e => setPassword(e.target.value)}
       />
 
+      <a href="/"
+        className="forgotPassword">
+        i forgot my password
+      </a>
+
       <button 
         className="buttonForm"
         type="submit"
-      >Login</button>
+      >LOGIN</button>
 
+      <div 
+        className="register">
+        <p>I don't have an account! <a href="/" className="registerAcount">
+          Register
+        </a>  </p>
+        
       </div>
+
+    </div>
 
   </form>
 
